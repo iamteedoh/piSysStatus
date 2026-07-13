@@ -1,0 +1,14 @@
+[Unit]
+Description=Pi System Status OLED Display
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/piSysStatus
+ExecStart=/opt/piSysStatus/venv/bin/python /opt/piSysStatus/pi_status.py
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
